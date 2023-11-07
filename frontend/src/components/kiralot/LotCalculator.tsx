@@ -8,18 +8,31 @@ function LotCalculator() {
     maxLot: 0,
   });
 
+  const dutiSetem = 0.001;
+  const bayaranPelepasan = 0.0003;
+
   const handleFieldChange = (fieldName: string, value: number) => {
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: value,
     }));
+
+    //save to local storage
+    // localStorage.setItem("amountToInvest", formData.amountToInvest.toString());
+    // localStorage.setItem("stockPrice", formData.stockPrice.toString());
+    // localStorage.setItem("brokerageFee", formData.brokerageFee.toString());
   };
 
   const calculateMaxLot = () => {
     const { amountToInvest, stockPrice, brokerageFee } = formData;
+    const costPerUnit =
+      stockPrice +
+      stockPrice * (dutiSetem + bayaranPelepasan + brokerageFee / 100);
 
     // Calculate the Max Lot based on inputs
-    const maxLotValue = (amountToInvest / stockPrice) * (100 / brokerageFee);
+    let maxLotValue = amountToInvest / (costPerUnit * 100);
+    // Round down to the nearest integer
+    maxLotValue = Math.floor(maxLotValue);
 
     setFormData((prevData) => ({
       ...prevData,
