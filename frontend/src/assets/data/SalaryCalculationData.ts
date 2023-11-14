@@ -1,0 +1,386 @@
+export const residentTaxBracket = {
+  tax1: {
+    min: 5000,
+    max: 20000,
+    tax: 0.01,
+  },
+  tax2: {
+    min: 20001,
+    max: 35000,
+    tax: 0.03,
+  },
+  tax3: {
+    min: 35001,
+    max: 50000,
+    tax: 0.06,
+  },
+  tax4: {
+    min: 50001,
+    max: 70000,
+    tax: 0.11,
+  },
+  tax5: {
+    min: 70001,
+    max: 100000,
+    tax: 0.19,
+  },
+  tax6: {
+    min: 100001,
+    max: 400000,
+    tax: 0.25,
+  },
+  tax7: {
+    min: 400001,
+    max: 600000,
+    tax: 0.26,
+  },
+  tax8: {
+    min: 600001,
+    max: 2000000,
+    tax: 0.28,
+  },
+  tax9: {
+    min: 2000001,
+    max: "No limit",
+    tax: 0.3,
+  },
+};
+
+export const nonResidentTaxBracket = {
+  tax1: {
+    tax: 0.3,
+  },
+};
+
+export const wageContributions = [
+  {
+    wageRange: "Up to RM30",
+    employerContribution: 0.05, // 5 sen
+    employeeContribution: 0.05, // 5 sen
+    totalContribution: 0.1, // 10 sen
+  },
+  {
+    wageRange: "RM30 to RM50",
+    employerContribution: 0.1,
+    employeeContribution: 0.1,
+    totalContribution: 0.2,
+  },
+  {
+    wageRange: "RM50 to RM70",
+    employerContribution: 0.15,
+    employeeContribution: 0.15,
+    totalContribution: 0.3,
+  },
+  {
+    wageRange: "RM70 to RM100",
+    employerContribution: 0.2,
+    employeeContribution: 0.2,
+    totalContribution: 0.4,
+  },
+  {
+    wageRange: "RM100 to RM140",
+    employerContribution: 0.25,
+    employeeContribution: 0.25,
+    totalContribution: 0.5,
+  },
+  {
+    wageRange: "RM140 to RM200",
+    employerContribution: 0.35,
+    employeeContribution: 0.35,
+    totalContribution: 0.7,
+  },
+  {
+    wageRange: "RM200 to RM300",
+    employerContribution: 0.5,
+    employeeContribution: 0.5,
+    totalContribution: 1.0,
+  },
+  {
+    wageRange: "RM300 to RM400",
+    employerContribution: 0.7,
+    employeeContribution: 0.7,
+    totalContribution: 1.4,
+  },
+  {
+    wageRange: "RM400 to RM500",
+    employerContribution: 0.9,
+    employeeContribution: 0.9,
+    totalContribution: 1.8,
+  },
+  {
+    wageRange: "RM500 to RM600",
+    employerContribution: 1.1,
+    employeeContribution: 1.1,
+    totalContribution: 2.2,
+  },
+  {
+    wageRange: "RM600 to RM700",
+    employerContribution: 1.3,
+    employeeContribution: 1.3,
+    totalContribution: 2.6,
+  },
+  {
+    wageRange: "RM700 to RM800",
+    employerContribution: 1.5,
+    employeeContribution: 1.5,
+    totalContribution: 3.0,
+  },
+  {
+    wageRange: "RM800 to RM900",
+    employerContribution: 1.7,
+    employeeContribution: 1.7,
+    totalContribution: 3.4,
+  },
+  {
+    wageRange: "RM900 to RM1,000",
+    employerContribution: 1.9,
+    employeeContribution: 1.9,
+    totalContribution: 3.8,
+  },
+  {
+    wageRange: "RM1,000 to RM1,100",
+    employerContribution: 2.1,
+    employeeContribution: 2.1,
+    totalContribution: 4.2,
+  },
+  {
+    wageRange: "RM1,100 to RM1,200",
+    employerContribution: 2.3,
+    employeeContribution: 2.3,
+    totalContribution: 4.6,
+  },
+  {
+    wageRange: "RM1,200 to RM1,300",
+    employerContribution: 2.5,
+    employeeContribution: 2.5,
+    totalContribution: 5.0,
+  },
+  {
+    wageRange: "RM1,300 to RM1,400",
+    employerContribution: 2.7,
+    employeeContribution: 2.7,
+    totalContribution: 5.4,
+  },
+  {
+    wageRange: "RM1,400 to RM1,500",
+    employerContribution: 2.9,
+    employeeContribution: 2.9,
+    totalContribution: 5.8,
+  },
+  {
+    wageRange: "RM1,500 to RM1,600",
+    employerContribution: 3.1,
+    employeeContribution: 3.1,
+    totalContribution: 6.2,
+  },
+  {
+    wageRange: "RM1,600 to RM1,700",
+    employerContribution: 3.3,
+    employeeContribution: 3.3,
+    totalContribution: 6.6,
+  },
+  {
+    wageRange: "RM1,700 to RM1,800",
+    employerContribution: 3.5,
+    employeeContribution: 3.5,
+    totalContribution: 7.0,
+  },
+  {
+    wageRange: "RM1,800 to RM1,900",
+    employerContribution: 3.7,
+    employeeContribution: 3.7,
+    totalContribution: 7.4,
+  },
+  {
+    wageRange: "RM1,900 to RM2,000",
+    employerContribution: 3.9,
+    employeeContribution: 3.9,
+    totalContribution: 7.8,
+  },
+  {
+    wageRange: "RM2,000 to RM2,100",
+    employerContribution: 4.1,
+    employeeContribution: 4.1,
+    totalContribution: 8.2,
+  },
+  {
+    wageRange: "RM2,100 to RM2,200",
+    employerContribution: 4.3,
+    employeeContribution: 4.3,
+    totalContribution: 8.6,
+  },
+  {
+    wageRange: "RM2,200 to RM2,300",
+    employerContribution: 4.5,
+    employeeContribution: 4.5,
+    totalContribution: 9.0,
+  },
+  {
+    wageRange: "RM2,300 to RM2,400",
+    employerContribution: 4.7,
+    employeeContribution: 4.7,
+    totalContribution: 9.4,
+  },
+  {
+    wageRange: "RM2,400 to RM2,500",
+    employerContribution: 4.9,
+    employeeContribution: 4.9,
+    totalContribution: 9.8,
+  },
+  {
+    wageRange: "RM2,500 to RM2,600",
+    employerContribution: 5.1,
+    employeeContribution: 5.1,
+    totalContribution: 10.2,
+  },
+  {
+    wageRange: "RM2,600 to RM2,700",
+    employerContribution: 5.3,
+    employeeContribution: 5.3,
+    totalContribution: 10.6,
+  },
+  {
+    wageRange: "RM2,700 to RM2,800",
+    employerContribution: 5.5,
+    employeeContribution: 5.5,
+    totalContribution: 11.0,
+  },
+  {
+    wageRange: "RM2,800 to RM2,900",
+    employerContribution: 5.7,
+    employeeContribution: 5.7,
+    totalContribution: 11.4,
+  },
+  {
+    wageRange: "RM2,900 to RM3,000",
+    employerContribution: 5.9,
+    employeeContribution: 5.9,
+    totalContribution: 11.8,
+  },
+  {
+    wageRange: "RM3,000 to RM3,100",
+    employerContribution: 6.1,
+    employeeContribution: 6.1,
+    totalContribution: 12.2,
+  },
+  {
+    wageRange: "RM3,100 to RM3,200",
+    employerContribution: 6.3,
+    employeeContribution: 6.3,
+    totalContribution: 12.6,
+  },
+  {
+    wageRange: "RM3,200 to RM3,300",
+    employerContribution: 6.5,
+    employeeContribution: 6.5,
+    totalContribution: 13.0,
+  },
+  {
+    wageRange: "RM3,300 to RM3,400",
+    employerContribution: 6.7,
+    employeeContribution: 6.7,
+    totalContribution: 13.4,
+  },
+  {
+    wageRange: "RM3,400 to RM3,500",
+    employerContribution: 6.9,
+    employeeContribution: 6.9,
+    totalContribution: 13.8,
+  },
+  {
+    wageRange: "RM3,500 to RM3,600",
+    employerContribution: 7.1,
+    employeeContribution: 7.1,
+    totalContribution: 14.2,
+  },
+  {
+    wageRange: "RM3,600 to RM3,700",
+    employerContribution: 7.3,
+    employeeContribution: 7.3,
+    totalContribution: 14.6,
+  },
+  {
+    wageRange: "RM3,700 to RM3,800",
+    employerContribution: 7.5,
+    employeeContribution: 7.5,
+    totalContribution: 15.0,
+  },
+  {
+    wageRange: "RM3,800 to RM3,900",
+    employerContribution: 7.7,
+    employeeContribution: 7.7,
+    totalContribution: 15.4,
+  },
+  {
+    wageRange: "RM3,900 to RM4,000",
+    employerContribution: 7.9,
+    employeeContribution: 7.9,
+    totalContribution: 15.8,
+  },
+  {
+    wageRange: "RM4,000 to RM4,100",
+    employerContribution: 8.1,
+    employeeContribution: 8.1,
+    totalContribution: 16.2,
+  },
+  {
+    wageRange: "RM4,100 to RM4,200",
+    employerContribution: 8.3,
+    employeeContribution: 8.3,
+    totalContribution: 16.6,
+  },
+  {
+    wageRange: "RM4,200 to RM4,300",
+    employerContribution: 8.5,
+    employeeContribution: 8.5,
+    totalContribution: 17.0,
+  },
+  {
+    wageRange: "RM4,300 to RM4,400",
+    employerContribution: 8.7,
+    employeeContribution: 8.7,
+    totalContribution: 17.4,
+  },
+  {
+    wageRange: "RM4,400 to RM4,500",
+    employerContribution: 8.9,
+    employeeContribution: 8.9,
+    totalContribution: 17.8,
+  },
+  {
+    wageRange: "RM4,500 to RM4,600",
+    employerContribution: 9.1,
+    employeeContribution: 9.1,
+    totalContribution: 18.2,
+  },
+  {
+    wageRange: "RM4,600 to RM4,700",
+    employerContribution: 9.3,
+    employeeContribution: 9.3,
+    totalContribution: 18.6,
+  },
+  {
+    wageRange: "RM4,700 to RM4,800",
+    employerContribution: 9.5,
+    employeeContribution: 9.5,
+    totalContribution: 19.0,
+  },
+  {
+    wageRange: "RM4,800 to RM4,900",
+    employerContribution: 9.7,
+    employeeContribution: 9.7,
+    totalContribution: 19.4,
+  },
+  {
+    wageRange: "RM4,900 to RM5,000",
+    employerContribution: 9.9,
+    employeeContribution: 9.9,
+    totalContribution: 19.8,
+  },
+  {
+    wageRange: "Above RM5,000",
+    employerContribution: 9.9,
+    employeeContribution: 9.9,
+    totalContribution: 19.8,
+  },
+];
