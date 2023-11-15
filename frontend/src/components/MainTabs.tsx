@@ -1,14 +1,51 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import { LotCalculator, SalaryCalculator } from "./kirakira";
+import {
+  LotCalculator,
+  SalaryCalculator,
+  PensionFundCalculator,
+} from "./kirakira";
 
 function MainTabs() {
   return (
     <Tab.Group>
-      <Tab.List className="grid grid-flow-col justify-stretch">
-        <Tab>Calculate Stock Lot</Tab>
-        <Tab>Calculate Net Salary</Tab>
-        <Tab>Calculate Pension Fund</Tab>
+      <Tab.List className="grid grid-flow-col justify-stretch my-2">
+        <Tab as={Fragment}>
+          {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+              }
+            >
+              Calculate Stock Lot
+            </button>
+          )}
+        </Tab>
+        <Tab as={Fragment}>
+          {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+              }
+            >
+              Calculate Net Salary
+            </button>
+          )}
+        </Tab>
+        <Tab as={Fragment}>
+          {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+              }
+            >
+              Calculate Pension Fund
+            </button>
+          )}
+        </Tab>
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel className="flex justify-center">
@@ -17,7 +54,9 @@ function MainTabs() {
         <Tab.Panel className="flex justify-center">
           <SalaryCalculator />
         </Tab.Panel>
-        <Tab.Panel>Content 3</Tab.Panel>
+        <Tab.Panel className="flex justify-center">
+          <PensionFundCalculator />
+        </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
   );
