@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
+
+interface FormData {
+  amountToInvest: number;
+  stockPrice: number;
+  brokerageFee: number;
+  maxLot: number;
+}
 
 function LotCalculator() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     amountToInvest: 0,
     stockPrice: 0,
     brokerageFee: 0,
@@ -11,13 +18,16 @@ function LotCalculator() {
   const dutiSetem = 0.001;
   const bayaranPelepasan = 0.0003;
 
-  const handleFieldChange = (fieldName: string, value: number) => {
+  const handleFieldChange = (
+    fieldName: keyof FormData,
+    value: number | string
+  ) => {
     setFormData((prevData) => ({
       ...prevData,
-      [fieldName]: value,
+      [fieldName]: parseFloat(value as string),
     }));
 
-    //save to local storage
+    // save to local storage
     // localStorage.setItem("amountToInvest", formData.amountToInvest.toString());
     // localStorage.setItem("stockPrice", formData.stockPrice.toString());
     // localStorage.setItem("brokerageFee", formData.brokerageFee.toString());
@@ -50,8 +60,8 @@ function LotCalculator() {
             className="bg-transparent border-black border-2 rounded ml-1"
             type="number"
             value={formData.amountToInvest}
-            onChange={(e) =>
-              handleFieldChange("amountToInvest", parseFloat(e.target.value))
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleFieldChange("amountToInvest", e.target.value)
             }
           />
         </div>
@@ -61,8 +71,8 @@ function LotCalculator() {
             className="bg-transparent border-black border-2 rounded ml-1"
             type="number"
             value={formData.stockPrice}
-            onChange={(e) =>
-              handleFieldChange("stockPrice", parseFloat(e.target.value))
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleFieldChange("stockPrice", e.target.value)
             }
           />
         </div>
@@ -72,8 +82,8 @@ function LotCalculator() {
             className="bg-transparent border-black border-2 rounded ml-1"
             type="number"
             value={formData.brokerageFee}
-            onChange={(e) =>
-              handleFieldChange("brokerageFee", parseFloat(e.target.value))
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              handleFieldChange("brokerageFee", e.target.value)
             }
           />
         </div>
