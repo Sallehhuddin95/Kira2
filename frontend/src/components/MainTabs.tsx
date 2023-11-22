@@ -4,6 +4,7 @@ import {
   LotCalculator,
   SalaryCalculator,
   PensionFundCalculator,
+  BmiCalculator,
 } from "./kirakira";
 
 function MainTabs() {
@@ -46,6 +47,18 @@ function MainTabs() {
             </button>
           )}
         </Tab>
+        <Tab as={Fragment}>
+          {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+              }
+            >
+              Calculate BMI
+            </button>
+          )}
+        </Tab>
       </Tab.List>
       <Tab.Panels>
         <Tab.Panel className="flex justify-center">
@@ -56,6 +69,9 @@ function MainTabs() {
         </Tab.Panel>
         <Tab.Panel className="flex justify-center">
           <PensionFundCalculator />
+        </Tab.Panel>
+        <Tab.Panel className="flex justify-center">
+          <BmiCalculator />
         </Tab.Panel>
       </Tab.Panels>
     </Tab.Group>
