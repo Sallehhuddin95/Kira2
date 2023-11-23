@@ -42,7 +42,7 @@ function SalaryCalculator() {
   };
 
   return (
-    <div className="bg-zinc-300 rounded p-5 w-2/4">
+    <div className="bg-zinc-300 rounded p-5 w-full md:w-2/4">
       <h1 className="font-bold text-xl">Salary Calculator</h1>
       <form className="m-3">
         <div className="text-left my-2 flex flex-col">
