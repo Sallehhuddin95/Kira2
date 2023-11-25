@@ -16,7 +16,9 @@ function MainTabs() {
             /* Use the `selected` state to conditionally style the selected tab. */
             <button
               className={
-                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+                selected
+                  ? "bg-blue-500 text-white rounded font-bold"
+                  : "bg-white text-black border-solid border-2 border-black rounded"
               }
             >
               Calculate Stock Lot
@@ -28,7 +30,9 @@ function MainTabs() {
             /* Use the `selected` state to conditionally style the selected tab. */
             <button
               className={
-                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+                selected
+                  ? "bg-blue-500 text-white rounded font-bold"
+                  : "bg-white text-black border-solid border-2 border-black rounded"
               }
             >
               Calculate Net Salary
@@ -40,7 +44,9 @@ function MainTabs() {
             /* Use the `selected` state to conditionally style the selected tab. */
             <button
               className={
-                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+                selected
+                  ? "bg-blue-500 text-white rounded font-bold"
+                  : "bg-white text-black border-solid border-2 border-black rounded"
               }
             >
               Calculate Pension Fund
@@ -52,7 +58,9 @@ function MainTabs() {
             /* Use the `selected` state to conditionally style the selected tab. */
             <button
               className={
-                selected ? "bg-blue-500 text-white" : "bg-white text-black"
+                selected
+                  ? "bg-blue-500 text-white rounded font-bold"
+                  : "bg-white text-black border-solid border-2 border-black rounded"
               }
             >
               Calculate BMI
