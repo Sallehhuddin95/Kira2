@@ -4,6 +4,7 @@ interface FormData {
   amountToInvest: number;
   stockPrice: number;
   brokerageFee: number;
+  totalCost: number;
   maxLot: number;
 }
 
@@ -12,11 +13,14 @@ function LotCalculator() {
     amountToInvest: 0,
     stockPrice: 0,
     brokerageFee: 0,
+    totalCost: 0,
     maxLot: 0,
   });
 
-  const dutiSetem = 0.001;
-  const bayaranPelepasan = 0.0003;
+  const dutiSetemRate = 0.001;
+  const maxDutiSetem = 1000;
+  const bayaranPelepasanRate = 0.0003;
+  const maxBayaranPelepasan = 1000;
 
   const handleFieldChange = (
     fieldName: keyof FormData,
@@ -35,6 +39,17 @@ function LotCalculator() {
 
   const calculateMaxLot = () => {
     const { amountToInvest, stockPrice, brokerageFee } = formData;
+
+    const dutiSetem =
+      stockPrice * dutiSetemRate * 100 > maxDutiSetem
+        ? maxDutiSetem
+        : stockPrice * dutiSetemRate;
+
+    const bayaranPelepasan =
+      stockPrice * bayaranPelepasanRate * 100 > maxBayaranPelepasan
+        ? maxBayaranPelepasan
+        : stockPrice * bayaranPelepasanRate;
+
     const costPerUnit =
       stockPrice +
       stockPrice * (dutiSetem + bayaranPelepasan + brokerageFee / 100);
@@ -44,8 +59,12 @@ function LotCalculator() {
     // Round down to the nearest integer
     maxLotValue = Math.floor(maxLotValue);
 
+    const netTotalCost: number =
+      parseFloat((costPerUnit * 100).toFixed(2)) * maxLotValue;
+
     setFormData((prevData) => ({
       ...prevData,
+      totalCost: netTotalCost,
       maxLot: maxLotValue,
     }));
   };
@@ -85,6 +104,15 @@ function LotCalculator() {
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               handleFieldChange("brokerageFee", e.target.value)
             }
+          />
+        </div>
+        <div className="text-left my-2 flex flex-col">
+          <label>Total Cost:</label>
+          <input
+            className="bg-slate-200 border-slate-50 border-2 rounded ml-1"
+            type="text"
+            value={formData.totalCost}
+            readOnly
           />
         </div>
         <div className="text-left my-2 flex flex-col">
