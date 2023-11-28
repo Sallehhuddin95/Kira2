@@ -1,7 +1,18 @@
 import { useState } from "react";
 
+interface FormData {
+  initialCapital: number;
+  monthlySalary: number;
+  annualSalaryRaise: number;
+  employeeContribution: number;
+  employerContribution: number;
+  annualReturn: number;
+  yearsUntilRetire: number;
+  finalCapital: number;
+}
+
 function PensionFundCalculator() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     initialCapital: 0,
     monthlySalary: 0,
     annualSalaryRaise: 0,
@@ -12,10 +23,13 @@ function PensionFundCalculator() {
     finalCapital: 0,
   });
 
-  const handleFieldChange = (fieldName: string, value: number) => {
+  const handleFieldChange = (
+    fieldName: keyof FormData,
+    value: number | string
+  ) => {
     setFormData((prevData) => ({
       ...prevData,
-      [fieldName]: value,
+      [fieldName]: parseFloat(value as string),
     }));
   };
 
@@ -46,7 +60,9 @@ function PensionFundCalculator() {
       totalContribution *= 1 + annualReturn / 100;
     }
 
-    const finalCapital = initialCapital + totalContribution;
+    const finalCapital = parseFloat(
+      (initialCapital + totalContribution).toFixed(2)
+    );
 
     // Update state with calculated values
     setFormData((prevData) => ({
