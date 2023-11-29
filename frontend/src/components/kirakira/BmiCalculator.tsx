@@ -78,6 +78,15 @@ function BmiCalculator() {
         Calculate BMI
       </button>
       <hr />
+      <div className="my-4">
+        <h2 className="font-bold text-lg my-2">BMI Formula:</h2>
+        <p className="text-sm">BMI = Weight (kg) / (Height (m) * Height (m))</p>
+        <b>Or</b>
+        <p className="text-sm">
+          {" "}
+          BMI = Weight (kg) / [(Height (cm) / 100) * (Height (cm) / 100)]
+        </p>
+      </div>
       <div className="my-3 flex flex-col items-center">
         <p className="font-bold text-lg my-2">BMI Categories:</p>
 
