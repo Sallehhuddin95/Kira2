@@ -1,11 +1,7 @@
 import { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import {
-  LotCalculator,
-  SalaryCalculator,
-  PensionFundCalculator,
-  BmiCalculator,
-} from "./kirakira";
+import { LotCalculator, SalaryCalculator, BmiCalculator } from "./kirakira";
+import { PensionFundTab } from ".";
 
 function MainTabs() {
   return (
@@ -76,7 +72,7 @@ function MainTabs() {
           <SalaryCalculator />
         </Tab.Panel>
         <Tab.Panel className="flex justify-center">
-          <PensionFundCalculator />
+          <PensionFundTab />
         </Tab.Panel>
         <Tab.Panel className="flex justify-center">
           <BmiCalculator />

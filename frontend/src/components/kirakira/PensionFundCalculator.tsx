@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { retirementFundInput } from "../../assets/data/DataTypes";
+import { useAppDispatch, useAppSelector } from "../../app/hook";
+import { calculateRetirementFund } from "../../features/retirementfund/retirementFundSlice";
 
-interface FormData {
-  initialCapital: number;
-  monthlySalary: number;
-  annualSalaryRaise: number;
-  employeeContribution: number;
-  employerContribution: number;
-  annualReturn: number;
-  yearsUntilRetire: number;
-  finalCapital: number;
-}
+type FormData = retirementFundInput;
 
 function PensionFundCalculator() {
+  const dispatch = useAppDispatch();
+  const { isSuccess, retirementTable, finalCapital } = useAppSelector(
+    (state) => state.fund
+  );
+
   const [formData, setFormData] = useState<FormData>({
     initialCapital: 0,
     monthlySalary: 0,
@@ -22,6 +21,21 @@ function PensionFundCalculator() {
     yearsUntilRetire: 0,
     finalCapital: 0,
   });
+
+  // read local storage retirementValueInput and set it to formData
+  useEffect(() => {
+    const retirementValueInput = localStorage.getItem("retirementValueInput");
+
+    if (retirementValueInput) {
+      try {
+        const storedFormData: retirementFundInput =
+          JSON.parse(retirementValueInput);
+        setFormData(storedFormData);
+      } catch (error) {
+        console.error("Error parsing stored data:", error);
+      }
+    }
+  }, []);
 
   const handleFieldChange = (
     fieldName: keyof FormData,
@@ -34,45 +48,53 @@ function PensionFundCalculator() {
   };
 
   const calculateFinalCapital = () => {
-    const {
-      initialCapital,
-      monthlySalary,
-      annualSalaryRaise,
-      employeeContribution,
-      employerContribution,
-      annualReturn,
-      yearsUntilRetire,
-    } = formData;
+    // const {
+    //   initialCapital,
+    //   monthlySalary,
+    //   annualSalaryRaise,
+    //   employeeContribution,
+    //   employerContribution,
+    //   annualReturn,
+    //   yearsUntilRetire,
+    // } = formData;
 
-    // Perform pension fund calculations here
-    let totalContribution = 0;
+    // // Perform pension fund calculations here
+    // let totalContribution = 0;
 
-    for (let year = 1; year <= yearsUntilRetire; year++) {
-      const annualContribution =
-        monthlySalary *
-        12 *
-        (1 + annualSalaryRaise / 100) *
-        (employeeContribution / 100 + employerContribution / 100);
+    // for (let year = 1; year <= yearsUntilRetire; year++) {
+    //   const annualContribution =
+    //     monthlySalary *
+    //     12 *
+    //     (1 + annualSalaryRaise / 100) *
+    //     (employeeContribution / 100 + employerContribution / 100);
 
-      totalContribution += annualContribution;
+    //   totalContribution += annualContribution;
 
-      // Apply annual return to the total
-      totalContribution *= 1 + annualReturn / 100;
-    }
+    //   // Apply annual return to the total
+    //   totalContribution *= 1 + annualReturn / 100;
+    // }
 
-    const finalCapital = parseFloat(
-      (initialCapital + totalContribution).toFixed(2)
-    );
+    // const finalCapital = parseFloat(
+    //   (initialCapital + totalContribution).toFixed(2)
+    // );
 
-    // Update state with calculated values
-    setFormData((prevData) => ({
-      ...prevData,
-      finalCapital,
-    }));
+    // // Update state with calculated values
+    // setFormData((prevData) => ({
+    //   ...prevData,
+    //   finalCapital,
+    // }));
+
+    // Dispatch to store
+    dispatch(calculateRetirementFund(formData));
   };
 
+  useEffect(() => {
+    console.log("isSuccess", isSuccess);
+    console.log("retirementTable", retirementTable);
+  }, [isSuccess, retirementTable]);
+
   return (
-    <div className="bg-zinc-300 rounded p-5 w-full md:w-2/4">
+    <div className="bg-zinc-300 rounded p-5 w-full ">
       <h1 className="font-bold text-xl">Pension Fund Calculator</h1>
       <form className="m-3">
         <div className="text-left my-2 flex flex-col">
@@ -163,7 +185,9 @@ function PensionFundCalculator() {
           <input
             className="bg-slate-200 border-slate-50 border-2 rounded ml-1"
             type="text"
-            value={formData.finalCapital}
+            value={
+              finalCapital ? finalCapital.toFixed(2) : formData.finalCapital
+            }
             readOnly
           />
         </div>
