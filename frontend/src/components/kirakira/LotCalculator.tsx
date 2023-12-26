@@ -26,19 +26,35 @@ function LotCalculator() {
     fieldName: keyof FormData,
     value: number | string
   ) => {
+    const valueAsNumber = parseFloat(value as string);
+    if (
+      ((fieldName === "amountToInvest" || fieldName === "stockPrice") &&
+        valueAsNumber <= 0) ||
+      (fieldName === "brokerageFee" && valueAsNumber < 0)
+    ) {
+      const capitalizedFieldName =
+        fieldName === "amountToInvest"
+          ? "Amount to Invest"
+          : fieldName === "stockPrice"
+          ? "Stock Price"
+          : "Brokerage Fee";
+
+      alert(`${capitalizedFieldName} must be a positive value`);
+      return;
+    }
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: parseFloat(value as string),
     }));
-
-    // save to local storage
-    // localStorage.setItem("amountToInvest", formData.amountToInvest.toString());
-    // localStorage.setItem("stockPrice", formData.stockPrice.toString());
-    // localStorage.setItem("brokerageFee", formData.brokerageFee.toString());
   };
 
   const calculateMaxLot = () => {
     const { amountToInvest, stockPrice, brokerageFee } = formData;
+
+    if (amountToInvest <= 0 || stockPrice <= 0 || brokerageFee < 0) {
+      alert(`The fields must be a positive value`);
+      return;
+    }
 
     const dutiSetem =
       stockPrice * dutiSetemRate * 100 > maxDutiSetem

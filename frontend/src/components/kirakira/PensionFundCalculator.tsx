@@ -41,6 +41,26 @@ function PensionFundCalculator() {
     fieldName: keyof FormData,
     value: number | string
   ) => {
+    const valueAsNumber = parseFloat(value as string);
+    if (valueAsNumber < 0) {
+      const capitalizedFieldName =
+        fieldName === "initialCapital"
+          ? "Initial Capital"
+          : fieldName === "monthlySalary"
+          ? "Monthly Salary"
+          : fieldName === "annualSalaryRaise"
+          ? "Annual Salary Raise"
+          : fieldName === "employeeContribution"
+          ? "Employee Contribution"
+          : fieldName === "employerContribution"
+          ? "Employer Contribution"
+          : fieldName === "annualReturn"
+          ? "Annual Return"
+          : "Years Until Retire";
+
+      alert(`${capitalizedFieldName} cannot be a negative value`);
+      return;
+    }
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: parseFloat(value as string),
@@ -48,43 +68,30 @@ function PensionFundCalculator() {
   };
 
   const calculateFinalCapital = () => {
-    // const {
-    //   initialCapital,
-    //   monthlySalary,
-    //   annualSalaryRaise,
-    //   employeeContribution,
-    //   employerContribution,
-    //   annualReturn,
-    //   yearsUntilRetire,
-    // } = formData;
+    // verify that all fields are filled and not negative
+    const {
+      initialCapital,
+      monthlySalary,
+      annualSalaryRaise,
+      employeeContribution,
+      employerContribution,
+      annualReturn,
+      yearsUntilRetire,
+    } = formData;
 
-    // // Perform pension fund calculations here
-    // let totalContribution = 0;
+    if (
+      initialCapital < 0 ||
+      monthlySalary < 0 ||
+      annualSalaryRaise < 0 ||
+      employeeContribution < 0 ||
+      employerContribution < 0 ||
+      annualReturn < 0 ||
+      yearsUntilRetire < 0
+    ) {
+      alert(`All fields must be a positive value`);
+      return;
+    }
 
-    // for (let year = 1; year <= yearsUntilRetire; year++) {
-    //   const annualContribution =
-    //     monthlySalary *
-    //     12 *
-    //     (1 + annualSalaryRaise / 100) *
-    //     (employeeContribution / 100 + employerContribution / 100);
-
-    //   totalContribution += annualContribution;
-
-    //   // Apply annual return to the total
-    //   totalContribution *= 1 + annualReturn / 100;
-    // }
-
-    // const finalCapital = parseFloat(
-    //   (initialCapital + totalContribution).toFixed(2)
-    // );
-
-    // // Update state with calculated values
-    // setFormData((prevData) => ({
-    //   ...prevData,
-    //   finalCapital,
-    // }));
-
-    // Dispatch to store
     dispatch(calculateRetirementFund(formData));
   };
 

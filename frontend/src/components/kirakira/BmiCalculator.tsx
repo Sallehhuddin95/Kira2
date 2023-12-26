@@ -17,6 +17,20 @@ function BmiCalculator() {
     fieldName: keyof FormData,
     value: number | string
   ) => {
+    // change the type of value from string to number
+    const valueAsNumber = parseFloat(value as string);
+
+    if (typeof valueAsNumber === "number" && valueAsNumber <= 0) {
+      const capitalizedFieldName =
+        fieldName === "yourWeight"
+          ? "Weight"
+          : fieldName === "yourHeight"
+          ? "Height"
+          : "Fields";
+
+      alert(`${capitalizedFieldName} must be a positive value`);
+      return;
+    }
     setFormData((prevData) => ({
       ...prevData,
       [fieldName]: parseFloat(value as string),
@@ -25,6 +39,10 @@ function BmiCalculator() {
 
   const calculateMaxLot = () => {
     const { yourHeight, yourWeight } = formData;
+    if (yourHeight <= 0 || yourWeight <= 0) {
+      alert(`The Height and Weight fields must be a positive value`);
+      return;
+    }
     let bmi = (yourWeight / (yourHeight * yourHeight)) * 10000;
     bmi = Math.round(bmi * 100) / 100;
 
