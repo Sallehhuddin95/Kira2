@@ -32,3 +32,41 @@ export type retirementFundFCalculation = {
   employerContribution: number;
   salary: number;
 };
+
+export type salary = {
+  grossSalary: number;
+  epfEmployee: number;
+  epfEmployer: number;
+  tax: number;
+  eis: number;
+  socso: number;
+  netSalary: number;
+};
+
+export type taxBracket = {
+  min: number;
+  max: number | "No limit";
+  tax: number;
+};
+
+export type ResidentTaxBracket = {
+  tax1: taxBracket;
+  tax2: taxBracket;
+  tax3: taxBracket;
+  tax4: taxBracket;
+  tax5: taxBracket;
+  tax6: taxBracket;
+  tax7: taxBracket;
+  tax8: taxBracket;
+  tax9: taxBracket;
+};
+
+export type socsoCalculation = {
+  totalContribution: number;
+  employeeContribution: number;
+};
+
+export type eisCalculation = {
+  totalContribution: number;
+  employeeContribution: number;
+};
