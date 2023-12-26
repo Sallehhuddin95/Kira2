@@ -1,12 +1,13 @@
 import { useState, ChangeEvent } from "react";
+import { lotCalculator } from "../../assets/data/DataTypes";
+import {
+  dutiSetemRate,
+  maxDutiSetem,
+  bayaranPelepasanRate,
+  maxBayaranPelepasan,
+} from "../../assets/data/constants";
 
-interface FormData {
-  amountToInvest: number;
-  stockPrice: number;
-  brokerageFee: number;
-  totalCost: number;
-  maxLot: number;
-}
+type FormData = lotCalculator;
 
 function LotCalculator() {
   const [formData, setFormData] = useState<FormData>({
@@ -16,11 +17,6 @@ function LotCalculator() {
     totalCost: 0,
     maxLot: 0,
   });
-
-  const dutiSetemRate = 0.001;
-  const maxDutiSetem = 1000;
-  const bayaranPelepasanRate = 0.0003;
-  const maxBayaranPelepasan = 1000;
 
   const handleFieldChange = (
     fieldName: keyof FormData,
