@@ -39,7 +39,14 @@ function SalaryCalculator() {
   };
 
   const calculateNetSalary = () => {
-    const { grossSalary, epfEmployee } = formData;
+    const { grossSalary, epfEmployee, epfEmployer } = formData;
+
+    if (grossSalary <= 0 || epfEmployee <= 0 || epfEmployer <= 0) {
+      alert(
+        `The Salary, EPF Employee or EPF Employer fields must be a positive value`
+      );
+      return;
+    }
 
     const tax = calculateTax(grossSalary, epfEmployee);
     const eisEmployee = calculateEis(grossSalary).employeeContribution; // Calculate EIS
