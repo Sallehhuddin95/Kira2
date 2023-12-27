@@ -1,10 +1,7 @@
 import { useState, ChangeEvent } from "react";
+import { bmiCalculator } from "../../assets/data/DataTypes";
 
-interface FormData {
-  yourWeight: number;
-  yourHeight: number;
-  bmi: number;
-}
+type FormData = bmiCalculator;
 
 function BmiCalculator() {
   const [formData, setFormData] = useState<FormData>({

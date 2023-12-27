@@ -70,3 +70,19 @@ export type eisCalculation = {
   totalContribution: number;
   employeeContribution: number;
 };
+
+//lot calculator types
+export type lotCalculator = {
+  amountToInvest: number;
+  stockPrice: number;
+  brokerageFee: number;
+  totalCost: number;
+  maxLot: number;
+};
+
+// bmi calculator types
+export type bmiCalculator = {
+  yourWeight: number;
+  yourHeight: number;
+  bmi: number;
+};
