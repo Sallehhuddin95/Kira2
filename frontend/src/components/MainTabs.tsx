@@ -1,6 +1,11 @@
 import { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import { LotCalculator, SalaryCalculator, BmiCalculator } from "./kirakira";
+import {
+  LotCalculator,
+  SalaryCalculator,
+  BmiCalculator,
+  AsbfCalculator,
+} from "./kirakira";
 import { PensionFundTab } from ".";
 
 function MainTabs() {
@@ -59,6 +64,20 @@ function MainTabs() {
                   : "bg-white text-black border-solid border-2 border-black rounded"
               }
             >
+              Calculate ASBF
+            </button>
+          )}
+        </Tab>
+        <Tab as={Fragment}>
+          {({ selected }) => (
+            /* Use the `selected` state to conditionally style the selected tab. */
+            <button
+              className={
+                selected
+                  ? "bg-blue-500 text-white rounded font-bold"
+                  : "bg-white text-black border-solid border-2 border-black rounded"
+              }
+            >
               Calculate BMI
             </button>
           )}
@@ -73,6 +92,9 @@ function MainTabs() {
         </Tab.Panel>
         <Tab.Panel className="flex justify-center">
           <PensionFundTab />
+        </Tab.Panel>
+        <Tab.Panel className="flex justify-center">
+          <AsbfCalculator />
         </Tab.Panel>
         <Tab.Panel className="flex justify-center">
           <BmiCalculator />
