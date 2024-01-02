@@ -20,19 +20,19 @@ function CapitalTable() {
       <table className="min-w-full bg-white border border-black-200 my-3">
         <thead>
           <tr>
-            <th className=" py-3 bg-gray-100 text-center text-xs leading-4 text-gray-500 uppercase tracking-wider mx-1">
+            <th className=" py-3 bg-gray-100 text-center text-xs leading-4 text-gray-500  mx-1">
               Year
             </th>
-            <th className=" py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500 uppercase tracking-wider mx-1">
+            <th className=" py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500  mx-1">
               Savings
             </th>
-            <th className="py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500 uppercase tracking-wider mx-1">
+            <th className="py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500  mx-1">
               Employee Contribution
             </th>
-            <th className=" py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500 uppercase tracking-wider mx-1">
+            <th className=" py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500  mx-1">
               Employer Contribution
             </th>
-            <th className=" py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500 uppercase tracking-wider mx-1">
+            <th className=" py-3 bg-gray-100 text-center text-xs leading-4  text-gray-500  mx-1">
               Monthly Salary
             </th>
           </tr>
