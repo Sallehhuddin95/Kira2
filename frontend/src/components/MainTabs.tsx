@@ -11,7 +11,7 @@ import { PensionFundTab } from ".";
 function MainTabs() {
   return (
     <Tab.Group>
-      <Tab.List className="grid grid-flow-col justify-stretch my-2">
+      <Tab.List className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 my-2 text-sm sm:text-base md:text-lg">
         <Tab as={Fragment}>
           {({ selected }) => (
             /* Use the `selected` state to conditionally style the selected tab. */
@@ -87,7 +87,7 @@ function MainTabs() {
         <Tab.Panel className="flex justify-center">
           <LotCalculator />
         </Tab.Panel>
-        <Tab.Panel className="flex justify-center">
+        <Tab.Panel className="flex justify-center sm:text-sm">
           <SalaryCalculator />
         </Tab.Panel>
         <Tab.Panel className="flex justify-center">
