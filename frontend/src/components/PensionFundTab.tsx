@@ -6,8 +6,8 @@ import { CapitalTable } from "./table";
 function PensionFundTab() {
   return (
     <Tab.Group>
-      <div className="md:w-2/4">
-        <Tab.List className="grid grid-flow-col justify-stretch my-2">
+      <div className="sm:w-3/4 md:w-2/4 w-full">
+        <Tab.List className="grid grid-flow-col justify-stretch my-2 text-sm sm:text-base md:text-lg">
           <Tab as={Fragment}>
             {({ selected }) => (
               /* Use the `selected` state to conditionally style the selected tab. */
