@@ -86,3 +86,39 @@ export type bmiCalculator = {
   yourHeight: number;
   bmi: number;
 };
+
+// compounding interest types
+export type compoundingCalculator = {
+  initialCapital: number;
+  monthlyContribution: number;
+  annualReturn: number;
+  yearsToGrow: number;
+  finalCapital: number;
+};
+
+export type compoundingFund = {
+  initialCapital: number;
+  annualReturn: number;
+  yearsToGrow: number;
+  finalCapital: number;
+  isError: boolean;
+  isLoading: boolean;
+  isSuccess: boolean;
+  message: string | null;
+  compoundingTable: compoundingFundCalculation[];
+};
+
+export type compoundingFundInput = {
+  initialCapital: number;
+  monthlyContribution: number;
+  annualReturn: number;
+  yearsToGrow: number;
+  finalCapital: number;
+};
+
+export type compoundingFundCalculation = {
+  yearsToGrow: number;
+  finalCapital: number;
+  principal: number;
+  gains: number;
+};
