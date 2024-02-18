@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from "@reduxjs/toolkit";
 import retirementFundReducer from "../features/retirementfund/retirementFundSlice";
+import compoundingFundReducer from "../features/compoundingfund/compoundingFundSlice";
 
 const store = configureStore({
   reducer: {
     // reducer
     fund: retirementFundReducer,
+    compoundingFund: compoundingFundReducer,
   },
 });
 
