@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import { PensionFundCalculator } from "./kirakira";
+import { PensionFundCalculator } from "./calculators";
 import { CapitalTable } from "./table";
 
 function PensionFundTab() {

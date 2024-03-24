@@ -1,11 +1,11 @@
 import { useState, ChangeEvent } from "react";
-import { lotCalculator } from "../../assets/data/DataTypes";
+import { lotCalculator } from "../../../assets/data/DataTypes";
 import {
   dutiSetemRate,
   maxDutiSetem,
   bayaranPelepasanRate,
   maxBayaranPelepasan,
-} from "../../assets/data/constants";
+} from "../../../assets/data/constants";
 
 type FormData = lotCalculator;
 

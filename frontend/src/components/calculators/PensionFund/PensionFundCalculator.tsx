@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { retirementFundInput } from "../../assets/data/DataTypes";
-import { useAppDispatch, useAppSelector } from "../../app/hook";
-import { calculateRetirementFund } from "../../features/retirementfund/retirementFundSlice";
+import { retirementFundInput } from "../../../assets/data/DataTypes";
+import { useAppDispatch, useAppSelector } from "../../../app/hook";
+import { calculateRetirementFund } from "../../../features/retirementfund/retirementFundSlice";
 
 type FormData = retirementFundInput;
 

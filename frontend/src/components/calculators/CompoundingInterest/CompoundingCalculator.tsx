@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { compoundingFundInput } from "../../../assets/data/DataTypes";
 import { useAppDispatch } from "../../../app/hook";
 import { calculateCompoundingFund } from "../../../features/compoundingfund/compoundingFundSlice";
