@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import { Tab } from "@headlessui/react";
-import CompoundingCalculator from "./kirakira/CompoundingInterest/CompoundingCalculator";
+import CompoundingCalculator from "./calculators/CompoundingInterest/CompoundingCalculator";
 import { CompoundingTable } from "./table";
 
 function CompoundingFundTab() {

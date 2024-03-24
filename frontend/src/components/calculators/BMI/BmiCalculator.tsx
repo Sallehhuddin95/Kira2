@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from "react";
-import { bmiCalculator } from "../../assets/data/DataTypes";
+import { bmiCalculator } from "../../../assets/data/DataTypes";
 
 type FormData = bmiCalculator;
 
